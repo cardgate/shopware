@@ -1,0 +1,251 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="CardGate\Shopware\Helper\CheckoutHelper">
+            <argument type="service" id="Symfony\Component\Routing\Generator\UrlGeneratorInterface"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Service\SettingsService"/>
+            <argument type="service" id="order_transaction.repository"/>
+            <argument type="service" id="state_machine_state.repository" />
+            <argument>%kernel.shopware_version%</argument>
+            <argument type="service" id="Shopware\Core\Framework\Plugin\PluginService" />
+        </service>
+        <service id="CardGate\Shopware\Helper\CgtHelper"/>
+        <service id="CardGate\Shopware\Helper\ApiHelper">
+            <argument type="service" id="CardGate\Shopware\Service\SettingsService"/>
+            <argument>%kernel.shopware_version%</argument>
+        </service>
+        <service id="CardGate\Shopware\Helper\GatewayHelper">
+            <argument type="service" id="order.repository"/>
+        </service>
+        <service id="CardGate\Shopware\Service\SettingsService">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\AsyncPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <!-- Payment methods -->
+
+        <service id="CardGate\Shopware\Handlers\AfterpayPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\BancontactPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\BanktransferPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\BillinkPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\BitcoinPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\CreditcardPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\DirectdebitPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\GiftcardPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\GiropayPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\IdealPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\IdealqrPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\KlarnaPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\OnlineueberweisenPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\PaypalPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\PaysafecardPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\PaysafecashPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\Przelewy24PaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\SofortbankingPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="CardGate\Shopware\Handlers\SpraypayPaymentHandler">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <!-- /Payment methods -->
+
+        <service id="CardGate\Shopware\Storefront\Controller\NotificationController" public="true">
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="CardGate\Shopware\Service\SettingsService"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+        <service id="CardGate\Shopware\Storefront\Controller\ReturnController" public="true">
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="customer.repository"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+        <service id="CardGate\Shopware\Storefront\Controller\ApiController" public="true">
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+        </service>
+        <service id="CardGate\Shopware\Subscribers\CheckoutConfirmTemplateSubscriber" >
+            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
+            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
+            <argument type="service" id="customer.repository"/>
+            <argument>%kernel.shopware_version%</argument>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+        <service id="CardGate\Shopware\Resources\snippet\de_DE\GermanTranslations" public="true">
+            <tag name="shopware.snippet.file"/>
+        </service>
+        <service id="CardGate\Shopware\Resources\snippet\en_GB\EnglishTranslations" public="true">
+            <tag name="shopware.snippet.file"/>
+        </service>
+        <service id="CardGate\Shopware\Resources\snippet\nl_NL\DutchTranslations" public="true">
+            <tag name="shopware.snippet.file"/>
+        </service>
+    </services>
+</container>

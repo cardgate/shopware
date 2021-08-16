@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Configuration</title>
+        <title lang="de-DE">Konfiguration</title>
+
+        <input-field type="single-select">
+            <name>environment</name>
+            <label>Test or Live:</label>
+            <label lang="de-DE">Test oder Live</label>
+            <options>
+                <option>
+                    <id>test</id>
+                    <name>Test</name>
+                </option>
+                <option>
+                    <id>live</id>
+                    <name>Live</name>
+                </option>
+            </options>
+        </input-field>
+        <input-field type="int">
+            <name>siteId</name>
+            <label>Site ID</label>
+            <label lang="de-DE">Site ID</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>hashKey</name>
+            <label>Hash Key</label>
+            <label lang="de-DE">Hash Key</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>merchantId</name>
+            <label>Merchant ID</label>
+            <label lang="de-DE">Merchant ID</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiKey</name>
+            <label>API Key</label>
+            <label lang="de-DE">API Key</label>
+        </input-field>
+
+    </card>
+</config>
