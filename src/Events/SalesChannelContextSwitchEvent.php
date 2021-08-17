@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 /**
  * Copyright (c) 2021 CardGate B.V.
-* All rights reserved.
+ * All rights reserved.
  * See LICENSE for license details.
  */
 

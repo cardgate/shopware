@@ -550,7 +550,7 @@ class CheckoutHelper
         return [
             'platform_name' => 'Shopware',
             'platform_version' => $this->shopwareVersion,
-            'plugin_name' => 'CardGate',
+            'plugin_name' => 'cardgate/shopware6',
             'plugin_version' => $this->pluginService->getPluginByName('CuroCardGate', $context)->getVersion(),
         ];
     }

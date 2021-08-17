@@ -25,11 +25,6 @@
             "cardgate\\api\\": "src/API/cardgate-clientlib-php/src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "CardGate\\Shopware\\Tests\\": "tests/"
-        }
-    },
     "extra": {
         "shopware-plugin-class": "CardGate\\Shopware\\CuroCardGate",
         "label": {
@@ -40,12 +35,7 @@
         "description": {
             "en-GB": "CardGate online payments for Shopware (iDEAL, Cards, Klarna, Alipay etc.)",
             "de-DE": "CardGate Online-Bezahlung",
-            "nl_NL": "CardGate Online-Betalingen"
+            "nl_NL": "CardGate Online-Betaling"
         }
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^3.4",
-        "phpunit/phpunit": "8.3.4",
-        "phpro/grumphp": "^0.15.2"
     }
 }

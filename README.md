@@ -2,7 +2,7 @@
 
 # CardGate module for Shopware 6.4+
 
-[![Build Status](https://travis-ci.org/cardgate/drupal-ubercart.svg?branch=master)](https://travis-ci.org/cardgate/drupal-ubercart)
+[![Build Status](https://travis-ci.org/cardgate/shopware.svg?branch=master)](https://travis-ci.org/cardgate/shopware)
 
 ## Support
 
