@@ -1,36 +1,57 @@
+![CardGate](https://cdn.curopayments.net/thumb/200/logos/cardgate.png)
 
-<p align="center">
-  <img src="https://www.cardgate.com/img/cardgatelogo.svg" width="400px" position="center">
-</p>
+# CardGate module for Shopware 6.4+
 
-# CardGate plugin Shopware 6
+[![Build Status](https://travis-ci.org/cardgate/drupal-ubercart.svg?branch=master)](https://travis-ci.org/cardgate/drupal-ubercart)
 
-Easily integrate CardGate payment solutions into your Shopware 6 webshop with the free and completely new CardGate Shopware 6 plugin.
+## Support
 
-[![Build](https://github.com/CardGate/shopware/workflows/Build/badge.svg)](https://github.com/CardGate/shopware/actions)
-[![codecov](https://codecov.io/gh/CardGate/Shopware/branch/master/graph/badge.svg)](https://codecov.io/gh/CardGate/Shopware)
-[![Latest Stable Version](https://img.shields.io/packagist/v/cardgate/shopware.svg)](https://packagist.org/packages/cardgate/shopware)
-[![Total Downloads](https://img.shields.io/packagist/dt/cardgate/shopware.svg)](https://packagist.org/packages/cardgate/shopware)
-[![License](https://img.shields.io/packagist/l/cardgate/shopware.svg)](https://github.com/CardGate/shopware/blob/master/LICENSE)
+This module supports Ubercart version **6.4+**
 
-## What is Shopware 6?
-Shopware 6 is the sequel to Shopware 5, a popular open source ecommerce platform. For more information, make sure you check out [Shopware 6](https://www.shopware.com/en/products/shopware-6/).
+## Preparation
 
-## Generic gateway
-We have created a gateway named 'Generic gateway'. You can use this gateway for example for branded gateways.
-In the CardGate settings page in the Shopware backend you can fill in the gateway code that is provided by CardGate
+The usage of this module requires that you have obtained CardGate security credentials.  
+Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your **site ID** and **hash key**, or contact your accountmanager.
 
-## A gift for your contribution
-We look forward to receiving your input. Have you seen an opportunity to change things for better? We would like to invite you to create a pull request on GitHub.
-Are you missing something and would like us to fix it? Suggest an improvement by sending us an [email](mailto:integration@cardgate.com) or by creating an issue.
+## Installation
 
-What will you get in return? A brand new designed CardGate t-shirt which will make you part of the team!
+1. Download and unzip the most recent [**cardgate.zip**](https://github.com/cardgate/drupal-ubercart/releases) file on your desktop.
 
-## Testing
-Would you like to try out a working version of a Shopware 6 webshop? Reach out to our Integration team at <integration@cardgate.com> and one of our colleagues will assist you in opening a test account, where you can install the CardGate's latest Shopware 6 plugin and its current functionality.
+2. Upload the **CuroCardGate** folder to your **Shopware plugins** folder, which you can find here:  
+   **http://mywebshop.com/htdocs/custom/plugins/**  
+   (Replace **http://mywebshop.com** with the URL of your webshop, so the **CuroCardGate** folder will end up in the **plugins folder**.)
 
-## License
-[MIT License](https://github.com/CardGate/shopware/blob/develop/LICENSE)
 
-## Want to be part of the team?
-Are you a developer interested in working at CardGate? [View](https://www.cardgate.com/careers/#jobopenings) our job openings and feel free to get in touch with us.
+## Configuration
+
+1. Go to the **Admin, Modules** section of your webshop.
+
+2. Scroll to the **Ubercart – Payment** section.
+
+3. Checkmark the **CardGate Payment Gateways module**.
+   Scroll down and click **Save configuration**.
+
+4. Go to the **admin** section of your webshop and select **Admin, Store, Payment methods**.
+
+5. Click on the **CardGate settings** link.
+
+6. Now enter the **site ID**, and the **hash key** which you can find at **Sites** on [**My CardGate**](https://my.cardgate.com/).
+
+7. Enter the **default language** used by your webshop, and click **Save configuration**.
+
+8. At **Payment methods** checkmark all the payment methods that you wish to activate.  
+   Attention: Do **not** checkmark the **CardGate** payment method, this is only used for the settings.
+
+9. Click **Save configuration**.
+
+10. Go to [**My CardGate**](https://my.cardgate.com/), choose **Sites** and select the appropriate site.
+
+11. Go to **Connection to the website** and enter the **Callback URL**, for example:  
+    **http://mywebshop.com/?q=cart/cgp_response**
+    (Replace **http://mywebshop.com** with the URL of your webshop.)
+
+12. When you are **finished testing** make sure that you switch from **Test Mode** to **Live mode** at the **CardGate settings** and save it (**Save**).
+
+## Requirements
+
+No further requirements. 
