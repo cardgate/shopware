@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Copyright (c) 2021 CardGate B.V.
+ * All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace CardGate\Shopware\Storefront\Controller;
 
