@@ -24,33 +24,19 @@ Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your **sit
 
 ## Configuration
 
-1. Go to the **Admin, Modules** section of your webshop.
+1. Go to the **Admin, Extensions, My extensions** section of your webshop.
 
-2. Scroll to the **Ubercart – Payment** section.
+2. Upload the zipfile, using the **Upload Extension** button.
 
-3. Checkmark the **CardGate Payment Gateways module**.
-   Scroll down and click **Save configuration**.
+3. Use the link to **install** the app, 
 
-4. Go to the **admin** section of your webshop and select **Admin, Store, Payment methods**.
+4. **Activate** the Extension, and on the right, click on **...** and select configuration.
 
-5. Click on the **CardGate settings** link.
+5. Fill in the setting details, which have been given to you by your account manager.
 
-6. Now enter the **site ID**, and the **hash key** which you can find at **Sites** on [**My CardGate**](https://my.cardgate.com/).
+6. In your admin, choose **Settings, Shop, Payments**, and activate the CardGate paymwent methods you wish to use.
 
-7. Enter the **default language** used by your webshop, and click **Save configuration**.
-
-8. At **Payment methods** checkmark all the payment methods that you wish to activate.  
-   Attention: Do **not** checkmark the **CardGate** payment method, this is only used for the settings.
-
-9. Click **Save configuration**.
-
-10. Go to [**My CardGate**](https://my.cardgate.com/), choose **Sites** and select the appropriate site.
-
-11. Go to **Connection to the website** and enter the **Callback URL**, for example:  
-    **http://mywebshop.com/?q=cart/cgp_response**
-    (Replace **http://mywebshop.com** with the URL of your webshop.)
-
-12. When you are **finished testing** make sure that you switch from **Test Mode** to **Live mode** at the **CardGate settings** and save it (**Save**).
+7. In your admin, choose the appropriate Sales Channel, and choose the CardGate payments you wish to use.
 
 ## Requirements
 
