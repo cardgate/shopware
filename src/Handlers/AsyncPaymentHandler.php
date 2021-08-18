@@ -66,7 +66,7 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
      * @param AsyncPaymentTransactionStruct $transaction
      * @param RequestDataBag $dataBag
      * @param SalesChannelContext $salesChannelContext
-     * @param string|null $gateway
+     * @param string|null $paymentMethod
      * @return RedirectResponse
      * @throws AsyncPaymentProcessException
      */

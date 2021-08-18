@@ -107,10 +107,7 @@ class NotificationController extends StorefrontController
             return $response->setContent('hash verification failure');
         }
         $this->checkoutHelper->transitionPaymentState($get['code'], $transactionId, $this->context);
-
-
         $responseContent = $get['transaction'].'.'.$get['code'];
-
         return $response->setContent($responseContent);
     }
 

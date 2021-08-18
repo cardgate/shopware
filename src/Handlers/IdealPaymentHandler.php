@@ -15,16 +15,15 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class IdealPaymentHandler extends AsyncPaymentHandler
 {
 	private $paymentMethod = 'ideal';
-    /**
-     * @param AsyncPaymentTransactionStruct $transaction
-     * @param RequestDataBag $dataBag
-     * @param SalesChannelContext $salesChannelContext
-     * @param string|null $gateway
-     * @param string $type
-     * @param array $gatewayInfo
-     * @return RedirectResponse
-     * @throws \Shopware\Core\Checkout\Payment\Exception\AsyncPaymentProcessException
-     */
+	/**
+	 * @param AsyncPaymentTransactionStruct $transaction
+	 * @param RequestDataBag $dataBag
+	 * @param SalesChannelContext $salesChannelContext
+	 * @param string|null $paymentMethod
+	 *
+	 * @return RedirectResponse
+	 * @throws \Shopware\Core\Checkout\Payment\Exception\AsyncPaymentProcessException
+	 */
     public function pay(
         AsyncPaymentTransactionStruct $transaction,
         RequestDataBag $dataBag,

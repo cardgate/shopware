@@ -233,9 +233,6 @@
         </service>
         <service id="CardGate\Shopware\Subscribers\CheckoutConfirmTemplateSubscriber" >
             <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
-            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
-            <argument type="service" id="customer.repository"/>
-            <argument>%kernel.shopware_version%</argument>
             <tag name="kernel.event_subscriber"/>
         </service>
         <service id="CardGate\Shopware\Resources\snippet\de_DE\GermanTranslations" public="true">

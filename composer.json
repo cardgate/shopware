@@ -33,7 +33,7 @@
             "nl_NL": "CardGate Module voor Shopware 6"
         },
         "description": {
-            "en-GB": "CardGate online payments for Shopware (iDEAL, Cards, Klarna, Alipay etc.)",
+            "en-GB": "CardGate online payments",
             "de-DE": "CardGate Online-Bezahlung",
             "nl_NL": "CardGate Online-Betaling"
         }

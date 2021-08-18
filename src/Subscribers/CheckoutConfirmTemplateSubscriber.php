@@ -26,15 +26,9 @@ class CheckoutConfirmTemplateSubscriber implements EventSubscriberInterface
      * @param EntityRepositoryInterface $customerRepository
      */
     public function __construct(
-        ApiHelper $apiHelper,
-        CgtHelper $cgtHelper,
-        EntityRepositoryInterface $customerRepository,
-	    string $shopwareVersion
+        ApiHelper $apiHelper
     ) {
         $this->apiHelper = $apiHelper;
-        $this->cgtHelper = $cgtHelper;
-        $this->customerRepository = $customerRepository;
-        $this->shopwareVersion = $shopwareVersion;
     }
 
     /**

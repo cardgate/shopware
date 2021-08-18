@@ -8,7 +8,6 @@
 namespace CardGate\Shopware\Helper;
 
 use CardGate\Shopware\Service\SettingsService;
-use phpDocumentor\Reflection\Types\Integer;
 use Shopware\Core\Checkout\Cart\Price\Struct\CalculatedPrice;
 use Shopware\Core\Checkout\Customer\Aggregate\CustomerAddress\CustomerAddressEntity;
 use Shopware\Core\Checkout\Customer\CustomerEntity;
@@ -36,10 +35,6 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CheckoutHelper
 {
-    const TIME_ACTIVE_DAY = 3;
-    const TIME_ACTIVE_HOURS = 2;
-    const TIME_ACTIVE_MINUTES = 1;
-
     /** @var UrlGeneratorInterface $router */
     private $router;
     /** @var OrderTransactionStateHandler $orderTransactionStateHandler*/
@@ -92,7 +87,7 @@ class CheckoutHelper
     /**
      * @param string $address1
      * @param string $address2
-     * @return array
+     * @return string
      */
     public function parseAddress(string $address1, string $address2 = ''): string
     {
@@ -178,7 +173,6 @@ class CheckoutHelper
              'cancel_url' => sprintf('%s&cancel=1', $transaction->getReturnUrl()),
             'close_window' => false
         ];
-        $x = 1;
     }
 
     /**

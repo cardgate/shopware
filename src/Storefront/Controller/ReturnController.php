@@ -30,7 +30,7 @@ class ReturnController extends StorefrontController {
 	/** @var Context $context */
 	private $context;
 /**
-    * @param EntityRepository $transactionRepository
+    * @param EntityRepositoryInterface $orderRepository
 	*@param EntityRepositoryInterface $customerRepository
     *@param CgtHelper $cgtHelper
  *

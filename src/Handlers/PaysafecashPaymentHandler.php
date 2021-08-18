@@ -18,9 +18,7 @@ class PaysafecashPaymentHandler extends AsyncPaymentHandler {
 	 * @param AsyncPaymentTransactionStruct $transaction
 	 * @param RequestDataBag $dataBag
 	 * @param SalesChannelContext $salesChannelContext
-	 * @param string|null $gateway
-	 * @param string $type
-	 * @param array $gatewayInfo
+	 * @param string|null $paymentMethod
 	 *
 	 * @return RedirectResponse
 	 * @throws \Shopware\Core\Checkout\Payment\Exception\AsyncPaymentProcessException

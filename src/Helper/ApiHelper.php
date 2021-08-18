@@ -27,16 +27,6 @@ class ApiHelper
 	private $_iSiteId;
 
 	/**
-	 * @var string
-	 */
-	private $_sSiteKey;
-
-	/**
-	 * @var string
-	 */
-	private $shopwareVersion;
-
-	/**
 	 * ApiHelper constructor.
 	 *
 	 * @param SettingsService $settingsService
@@ -65,7 +55,6 @@ class ApiHelper
 	    $oCardGate->setLanguage( 'nl' );
 	    $this->_oClient = $oCardGate;
     	$this->_iSiteId = $this->settingsService->getSetting('siteId',$salesChannelId);
-    	$this->_sSiteKey = $sApiKey;
     	return $this->_oClient;
     }
 
