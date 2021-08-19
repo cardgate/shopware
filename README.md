@@ -15,7 +15,7 @@ Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your **sit
 
 ## Installation
 
-1. Download and unzip the most recent [**cardgate.zip**](https://github.com/cardgate/drupal-ubercart/releases) file on your desktop.
+1. Download and unzip the most recent [**cardgate.zip**](https://github.com/cardgate/shopware/releases) file on your desktop.
 
 2. Upload the **CuroCardGate** folder to your **Shopware plugins** folder, which you can find here:  
    **http://mywebshop.com/htdocs/custom/plugins/**  
