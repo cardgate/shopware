@@ -1,0 +1,41 @@
+{
+    "name": "cardgate/shopware",
+    "description": "CardGate module for shopware 6",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "minimum-stability": "RC",
+    "require": {
+        "php": "^7.4.3 || ^8.0",
+        "shopware/core": "~v6.4.0",
+        "shopware/storefront": "~v6.4.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-pcre": "*",
+        "ext-fileinfo": "*"
+    },
+    "authors": [{
+        "name": "CardGate",
+        "homepage": "https://www.cardgate.com",
+        "role": "Developer"
+    }],
+    "autoload": {
+        "psr-4": {
+            "CardGate\\Shopware\\": "src/",
+            "cardgate\\api\\": "src/API/cardgate-clientlib-php/src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "CardGate\\Shopware\\CuroCardGate",
+        "label": {
+            "en-GB": "CardGate module for Shopware 6",
+            "de-DE": "CardGate Module für Shopware 6",
+            "nl_NL": "CardGate Module voor Shopware 6"
+        },
+        "description": {
+            "en-GB": "CardGate online payments",
+            "de-DE": "CardGate Online-Bezahlung",
+            "nl_NL": "CardGate Online-Betaling"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{% if page.extensions.cardgate.issuers|length > 0 %}
+    <select form="confirmOrderForm" name="issuer" class="custom-select" style="margin-top: -2rem; margin-bottom: 1rem;max-width: 300px;margin-left: 1.5rem;">
+        <option value="">{{ "cgt-ideal.selectBankIssuer"|trans }}</option>
+        {% for issuer in page.extensions.cardgate.issuers %}
+            <option {% if page.extensions.cardgate.last_used_issuer == issuer.id %} selected="selected" {% endif %} value="{{ issuer.id }}">{{ issuer.name }}</option>
+        {% endfor %}
+    </select>
+{% endif %}
