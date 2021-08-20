@@ -11,7 +11,7 @@ This module supports Shopware version **6.4+**
 ## Preparation
 
 The usage of this module requires that you have obtained CardGate security credentials.  
-Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your 4 **login credentials**, or contact your accountmanager.
+Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your 4 **login credentials**, or contact your account manager.
 
 ## Installation
 
@@ -29,7 +29,7 @@ Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your 4 **l
 
 5. Fill in the setting details, which have been given to you by your account manager.
 
-6. In your admin, choose **Settings, Shop, Payments**, and activate the CardGate paymwent methods you wish to use.
+6. In your admin, choose **Settings, Shop, Payments**, and activate the CardGate payment methods you wish to use.
 
 7. In your admin, choose the appropriate Sales Channel, and choose the CardGate payments you wish to use.
 
