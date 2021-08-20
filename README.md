@@ -23,7 +23,7 @@ Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your 4 **l
 
 2. Upload the zipfile, using the **Upload Extension** button.
 
-3. Use the link to **install** the app, 
+3. Use the link to **install** the app.
 
 4. **Activate** the Extension, and on the right, click on **...** and select Configuration.
 
