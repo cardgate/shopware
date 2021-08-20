@@ -6,12 +6,12 @@
 
 ## Support
 
-This module supports Ubercart version **6.4+**
+This module supports Shopware version **6.4+**
 
 ## Preparation
 
 The usage of this module requires that you have obtained CardGate security credentials.  
-Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your **site ID** and **hash key**, or contact your accountmanager.
+Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your 4 **login credentials**, or contact your accountmanager.
 
 ## Installation
 
