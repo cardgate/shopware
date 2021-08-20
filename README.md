@@ -15,12 +15,7 @@ Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your **sit
 
 ## Installation
 
-1. Download and unzip the most recent [**cardgate.zip**](https://github.com/cardgate/shopware/releases) file on your desktop.
-
-2. Upload the **CuroCardGate** folder to your **Shopware plugins** folder, which you can find here:  
-   **http://mywebshop.com/htdocs/custom/plugins/**  
-   (Replace **http://mywebshop.com** with the URL of your webshop, so the **CuroCardGate** folder will end up in the **plugins folder**.)
-
+1. Download the most recent [**CuroCardGate.zip**](https://github.com/cardgate/shopware/releases) file on your desktop.
 
 ## Configuration
 
@@ -30,7 +25,7 @@ Please visit [**My CardGate**](https://my.cardgate.com/) and retrieve your **sit
 
 3. Use the link to **install** the app, 
 
-4. **Activate** the Extension, and on the right, click on **...** and select configuration.
+4. **Activate** the Extension, and on the right, click on **...** and select Configuration.
 
 5. Fill in the setting details, which have been given to you by your account manager.
 
