@@ -138,7 +138,7 @@ namespace cardgate\api {
 		const EPS = 'eps';
 
 		/**
-		 * Spray pay
+		 * SprayPay
 		 */
 		const SPRAYPAY = 'spraypay';
 

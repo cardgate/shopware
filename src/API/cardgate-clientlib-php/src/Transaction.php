@@ -658,6 +658,7 @@ namespace cardgate\api {
 					$this->_oConsumer->address()->getData(),
 					$this->_oConsumer->shippingAddress()->getData( 'shipto_' )
 				);
+				$aData['country_id'] = $this->_oConsumer->address()->getCountry();
 			}
 			if ( ! is_null( $this->_oCart ) ) {
 				$aData['cartitems'] = $this->_oCart->getData();
@@ -670,7 +671,6 @@ namespace cardgate\api {
 			}
 
 			$aData = array_filter( $aData ); // remove NULL values
-
 			$aResult = $this->_oClient->doRequest( $sResource, $aData, 'POST' );
 
 			if (
