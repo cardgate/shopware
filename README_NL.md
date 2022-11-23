@@ -10,8 +10,8 @@ Deze module is geschikt voor Shopware versie **6.4+**
 
 ## Voorbereiding
 
-Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig.
-Bezoek hiervoor [**Mijn CardGate**](https://my.cardgate.com/) en haal daar je gegevens op,
+Voor het gebruik van deze module zijn CardGate RESTful gegevens nodig. 
+Bezoek hiervoor [**Mijn CardGate**](https://my.cardgate.com/) en haal daar je gegevens op
 of neem contact op met je accountmanager.
 
 ## Installatie
@@ -32,7 +32,7 @@ of neem contact op met je accountmanager.
 
 6. Kies in het Admin gedeelte **Settings, Shop, Payments**, en activeer de CardGate betaalmethoden die je wilt gebruiken.
 
-7. Kies in het admin gedeelte het gewenste **Sales Channel**, en kies de Cardgate betaalmethoden die je wilt gebruiken.
+7. Kies in het admin gedeelte het gewenste **Sales Channel**, en kies de CardGate betaalmethoden die je wilt gebruiken.
 
 
 ## Vereisten
