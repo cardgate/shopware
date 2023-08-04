@@ -28,19 +28,19 @@ use CardGate\Shopware\PaymentMethods\Przelewy24;
 use CardGate\Shopware\PaymentMethods\Sofortbanking;
 use CardGate\Shopware\PaymentMethods\Spraypay;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 
 class GatewayHelper
 {
-    /** @var EntityRepositoryInterface */
+    /** @var EntityRepository */
     private $orderRepository;
 
     /**
      * GatewayHelper constructor.
-     * @param EntityRepositoryInterface $orderRepository
+     * @param EntityRepository $orderRepository
      */
-    public function __construct(EntityRepositoryInterface $orderRepository)
+    public function __construct(EntityRepository $orderRepository)
     {
         $this->orderRepository = $orderRepository;
     }

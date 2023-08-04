@@ -8,24 +8,24 @@
 namespace CardGate\Shopware\Events;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 
 class SalesChannelContextSwitchEvent implements EventSubscriberInterface
 {
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     public $customerRepository;
     public $paymentMethodRepository;
 
     /**
      * SalesChannelContextSwitchEvent constructor.
-     * @param EntityRepositoryInterface $customerRepository
-     * @param EntityRepositoryInterface $paymentMethodRepository
+     * @param EntityRepository $customerRepository
+     * @param EntityRepository $paymentMethodRepository
      */
     public function __construct(
-        EntityRepositoryInterface $customerRepository,
-        EntityRepositoryInterface $paymentMethodRepository
+        EntityRepository $customerRepository,
+        EntityRepository $paymentMethodRepository
     ) {
         $this->customerRepository = $customerRepository;
         $this->paymentMethodRepository = $paymentMethodRepository;

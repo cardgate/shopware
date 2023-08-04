@@ -7,7 +7,7 @@ use cardgate\api;
 use CardGate\Shopware\Helper\ApiHelper;
 use CardGate\Shopware\Helper\CgtHelper;
 use CardGate\Shopware\Storefront\Struct\CardGateStruct;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Storefront\Page\Checkout\Confirm\CheckoutConfirmPageLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -23,7 +23,7 @@ class CheckoutConfirmTemplateSubscriber implements EventSubscriberInterface
      * CheckoutConfirmTemplateSubscriber constructor.
      * @param ApiHelper $apiHelper
      * @param MspHelper $cgtHelper
-     * @param EntityRepositoryInterface $customerRepository
+     * @param EntityRepository $customerRepository
      */
     public function __construct(
         ApiHelper $apiHelper

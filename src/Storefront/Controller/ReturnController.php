@@ -10,7 +10,7 @@ use CardGate\Shopware\Helper\CgtHelper;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Framework\Api\Context\SalesChannelApiSource;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Exception\InconsistentCriteriaIdsException;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
@@ -18,26 +18,28 @@ use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 
+/**
+ * @Route(defaults={"_routeScope"={"storefront"}})
+ */
 class ReturnController extends StorefrontController {
-	/** @var EntityRepositoryInterface */
+	/** @var EntityRepository */
 	private $orderRepository;
-	/** @var EntityRepositoryInterface */
+	/** @var EntityRepository */
 	private $customerRepository;
 	/** @var Request $request */
 	private $request;
 	/** @var Context $context */
 	private $context;
 /**
-    * @param EntityRepositoryInterface $orderRepository
-	*@param EntityRepositoryInterface $customerRepository
+    * @param EntityRepository $orderRepository
+	*@param EntityRepository $customerRepository
     *@param CgtHelper $cgtHelper
  *
  **/
 	public function __construct(
-		EntityRepositoryInterface $orderRepository,
-		EntityRepositoryInterface $customerRepository,
+		EntityRepository $orderRepository,
+		EntityRepository $customerRepository,
 		CgtHelper $cgtHelper
 	) {
 		$this->orderRepository = $orderRepository;
@@ -47,7 +49,6 @@ class ReturnController extends StorefrontController {
 	}
 
 	/**
-	 * @RouteScope(scopes={"storefront"})
 	 * @Route("/cardgate/return",
 	 *      name="frontend.cardgate.return",
 	 *      options={"seo"="false"},
