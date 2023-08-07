@@ -8,15 +8,11 @@
 namespace CardGate\Shopware\Storefront\Controller;
 
 use CardGate\Shopware\Helper\ApiHelper;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\Framework\Validation\DataBag\RequestDataBag;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @RouteScope(scopes={"api"})
- */
 class ApiController extends AbstractController
 {
 	/** @var ApiHelper */

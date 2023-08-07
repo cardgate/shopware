@@ -14,7 +14,7 @@ use CardGate\Shopware\Helper\CgtHelper;
 use CardGate\Shopware\Service\SettingsService;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Exception\InconsistentCriteriaIdsException;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
@@ -22,15 +22,17 @@ use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 
+/**
+ * @Route(defaults={"_routeScope"={"storefront"}})
+ */
 class NotificationController extends StorefrontController
 {
     /** @var CheckoutHelper $checkoutHelper */
     private $checkoutHelper;
     /** @var Request $request */
     private $request;
-    /** @var EntityRepositoryInterface $orderRepository */
+    /** @var EntityRepository $orderRepository */
     private $orderRepository;
     /** @var ApiHelper $apiHelper */
     private $apiHelper;
@@ -41,14 +43,14 @@ class NotificationController extends StorefrontController
 
     /**
      * NotificationController constructor.
-     * @param EntityRepositoryInterface $orderRepository
+     * @param EntityRepository $orderRepository
      * @param CheckoutHelper $checkoutHelper
      * @param ApiHelper $apiHelper
      * @param CgtHelper $cgtHelper
      * @param SettingsService $settingsService
      */
     public function __construct(
-        EntityRepositoryInterface $orderRepository,
+        EntityRepository $orderRepository,
         CheckoutHelper $checkoutHelper,
         ApiHelper $apiHelper,
         CgtHelper $cgtHelper,
@@ -64,7 +66,6 @@ class NotificationController extends StorefrontController
 
 
     /**
-     * @RouteScope(scopes={"storefront"})
      * @Route("/cardgate/notification",
      *      name="frontend.cardgate.notification",
      *      options={"seo"="false"},
