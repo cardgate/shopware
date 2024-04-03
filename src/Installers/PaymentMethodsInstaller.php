@@ -12,7 +12,7 @@ use CardGate\Shopware\CuroCardGate;
 use CardGate\Shopware\PaymentMethods\CardGate;
 use CardGate\Shopware\PaymentMethods\PaymentMethodInterface;
 use Shopware\Core\Content\Media\MediaEntity;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
@@ -31,9 +31,9 @@ class PaymentMethodsInstaller implements InstallerInterface
 
     /** @var PluginIdProvider */
     public $pluginIdProvider;
-    /** @var EntityRepositoryInterface */
+    /** @var EntityRepository */
     public $paymentMethodRepository;
-    /** @var EntityRepositoryInterface */
+    /** @var EntityRepository */
     public $mediaRepository;
 
     /**

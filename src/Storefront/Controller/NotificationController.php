@@ -7,14 +7,16 @@
 
 namespace CardGate\Shopware\Storefront\Controller;
 
+
 use Exception;
 use CardGate\Shopware\Helper\ApiHelper;
 use CardGate\Shopware\Helper\CheckoutHelper;
 use CardGate\Shopware\Helper\CgtHelper;
 use CardGate\Shopware\Service\SettingsService;
+use CardGate\Shopware\Service\InvoiceService;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Exception\InconsistentCriteriaIdsException;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
@@ -22,7 +24,6 @@ use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 
 class NotificationController extends StorefrontController
 {
@@ -30,7 +31,7 @@ class NotificationController extends StorefrontController
     private $checkoutHelper;
     /** @var Request $request */
     private $request;
-    /** @var EntityRepositoryInterface $orderRepository */
+    /** @var EntityRepository $orderRepository */
     private $orderRepository;
     /** @var ApiHelper $apiHelper */
     private $apiHelper;
@@ -38,42 +39,43 @@ class NotificationController extends StorefrontController
     private $context;
 	/** @var SettingsService $settingsService */
 	private $settingsService;
+    /** @var InvoiceService $invoiceService */
+    private $invoiceService;
 
     /**
      * NotificationController constructor.
-     * @param EntityRepositoryInterface $orderRepository
+     * @param EntityRepository $orderRepository
      * @param CheckoutHelper $checkoutHelper
      * @param ApiHelper $apiHelper
      * @param CgtHelper $cgtHelper
      * @param SettingsService $settingsService
+     * @param InvoiceService $invoiceService
      */
     public function __construct(
-        EntityRepositoryInterface $orderRepository,
+        EntityRepository $orderRepository,
         CheckoutHelper $checkoutHelper,
         ApiHelper $apiHelper,
         CgtHelper $cgtHelper,
-		SettingsService $settingsService
+		SettingsService $settingsService,
+        InvoiceService $invoiceService
     ) {
         $this->orderRepository = $orderRepository;
         $this->checkoutHelper = $checkoutHelper;
         $this->request = $cgtHelper->getGlobals();
         $this->apiHelper = $apiHelper;
         $this->settingsService = $settingsService;
+        $this->invoiceService = $invoiceService;
         $this->context = Context::createDefaultContext();
     }
-
-
-    /**
-     * @RouteScope(scopes={"storefront"})
-     * @Route("/cardgate/notification",
-     *      name="frontend.cardgate.notification",
-     *      options={"seo"="false"},
-     *      methods={"GET"}
-     *     )
-     * @return Response
-     */
+    #[Route(
+        path: "/cardgate/notification",
+        defaults: ['_routeScope' => ['storefront']],
+        name: "frontend.cardgate.notification",
+        options: ["seo" => false],
+        methods: ["GET"]
+    )]
     public function notification(): Response
-    {
+     {
     	$get = [];
     	$get['transaction'] = $this->request->get('transaction');
 	    $get['currency'] = $this->request->get('currency');
@@ -98,6 +100,8 @@ class NotificationController extends StorefrontController
         }
 
         $transactionId = $order->getTransactions()->first()->getId();
+        $transaction = $order->getTransactions()->first();
+        $transaction->setC;
         $oCardGateClient = $this->apiHelper->initializeCardGateClient($order->getSalesChannelId());
         try {
 	        if ( FALSE == $oCardGateClient->transactions()->verifyCallback( $get, $this->settingsService->getSetting('hashKey',$order->getSalesChannelId())) ) {
@@ -107,6 +111,9 @@ class NotificationController extends StorefrontController
             return $response->setContent('hash verification failure');
         }
         $this->checkoutHelper->transitionPaymentState($get['code'], $transactionId, $this->context);
+        if (!$this->invoiceService->isInvoiced($order->getId(),$this->context)){
+            $this->invoiceService->generateInvoice( $order, $this->context, $order->getSalesChannelId() );
+        }
         $responseContent = $get['transaction'].'.'.$get['code'];
         return $response->setContent($responseContent);
     }

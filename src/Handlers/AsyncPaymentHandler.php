@@ -17,7 +17,7 @@ use Shopware\Core\Checkout\Payment\Cart\PaymentHandler\AsynchronousPaymentHandle
 use Shopware\Core\Checkout\Payment\Exception\AsyncPaymentFinalizeException;
 use Shopware\Core\Checkout\Payment\Exception\AsyncPaymentProcessException;
 use Shopware\Core\Checkout\Payment\Exception\CustomerCanceledAsyncPaymentException;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Validation\DataBag\RequestDataBag;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -30,18 +30,16 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
 	 * @var OrderTransactionStateHandler
 	 */
 	private $orderTransactionStateHandler;
-	/**
-	 * @var EntityRepositoryInterface
-	 */
-	private $customerRepository;
     /** @var ApiHelper $apiHelper */
     public $apiHelper;
     /** @var CheckoutHelper $checkoutHelper */
     public $checkoutHelper;
     /** @var CgtHelper $cgtHelper */
     public $cgtHelper;
-
-
+    /**
+     * @var EntityRepository
+     */
+    private $customerRepository;
     /**
      * CardGate constructor.
      * @param ApiHelper $apiHelper
@@ -53,7 +51,7 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
         ApiHelper $apiHelper,
         CheckoutHelper $checkoutHelper,
         CgtHelper $cgtHelper,
-	    EntityRepositoryInterface $customerRepository
+	    EntityRepository $customerRepository
     ) {
 	    $this->orderTransactionStateHandler = $orderTransactionStateHandler;
         $this->apiHelper = $apiHelper;
