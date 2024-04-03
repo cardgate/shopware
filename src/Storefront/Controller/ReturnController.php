@@ -19,9 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route(defaults={"_routeScope"={"storefront"}})
- */
 class ReturnController extends StorefrontController {
 	/** @var EntityRepository */
 	private $orderRepository;
@@ -47,15 +44,13 @@ class ReturnController extends StorefrontController {
 		$this->request = $cgtHelper->getGlobals();
 		$this->context = Context::createDefaultContext();
 	}
-
-	/**
-	 * @Route("/cardgate/return",
-	 *      name="frontend.cardgate.return",
-	 *      options={"seo"="false"},
-	 *      methods={"GET"}
-	 *     )
-	 * @return Response
-	 */
+    #[Route(
+        path: "/cardgate/return",
+        defaults: ['_routeScope' => ['storefront']],
+        name: "frontend.cardgate.return",
+        options: ["seo" => false],
+        methods: ["GET"]
+    )]
 	public function return(): Response{
 		$status = $this->request->get('status');
 		$reference = $this->request->get('reference');
