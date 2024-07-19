@@ -116,15 +116,6 @@
             <tag name="shopware.payment.method.async" />
         </service>
 
-        <service id="CardGate\Shopware\Handlers\GiropayPaymentHandler">
-            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
-            <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
-            <argument type="service" id="CardGate\Shopware\Helper\CheckoutHelper"/>
-            <argument type="service" id="CardGate\Shopware\Helper\CgtHelper"/>
-            <argument type="service" id="customer.repository"/>
-            <tag name="shopware.payment.method.async" />
-        </service>
-
         <service id="CardGate\Shopware\Handlers\IdealPaymentHandler">
             <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
             <argument type="service" id="CardGate\Shopware\Helper\ApiHelper"/>
