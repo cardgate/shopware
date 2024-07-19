@@ -16,7 +16,6 @@ use CardGate\Shopware\PaymentMethods\Bitcoin;
 use CardGate\Shopware\PaymentMethods\Creditcard;
 use CardGate\Shopware\PaymentMethods\Directdebit;
 use CardGate\Shopware\PaymentMethods\Giftcard;
-use CardGate\Shopware\PaymentMethods\Giropay;
 use CardGate\Shopware\PaymentMethods\Ideal;
 use CardGate\Shopware\PaymentMethods\Idealqr;
 use CardGate\Shopware\PaymentMethods\Klarna;
@@ -54,7 +53,6 @@ class GatewayHelper
     	Creditcard::class,
 	    Directdebit::class,
 	    Giftcard::class,
-	    Giropay::class,
         Ideal::class,
 	    Idealqr::class,
 	    Klarna::class,
