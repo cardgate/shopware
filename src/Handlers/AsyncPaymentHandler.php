@@ -115,7 +115,7 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
 			$transaction->setReference($order->getOrderNumber());
 			$transaction->setDescription($order->getOrderNumber());
 
-		    if ($paymentMethod == 'ideal'){
+		    if ( $paymentMethod == 'ideal' && $this->apiHelper->getShowIssuers() ){
 		    	$issuer = $dataBag->get('issuer');
 		    	$transaction->setIssuer($issuer);
 			   $this->saveLastIssuer($salesChannelContext,$issuer);

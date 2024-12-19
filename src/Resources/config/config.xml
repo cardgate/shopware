@@ -44,5 +44,20 @@
             <label lang="de-DE">API Key</label>
         </input-field>
 
+        <input-field type="single-select">
+            <name>showIssuers</name>
+            <label>Show issuers</label>
+            <label lang="de-DE">Banken anzeigen</label>
+            <options>
+                <option>
+                    <id>0</id>
+                    <name>Without issuers</name>
+                </option>
+                <option>
+                    <id>1</id>
+                    <name>With issuers</name>
+                </option>
+            </options>
+        </input-field>
     </card>
 </config>
