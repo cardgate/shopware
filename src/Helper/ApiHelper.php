@@ -26,7 +26,9 @@ class ApiHelper
 	 */
 	private $_iSiteId;
 
-	/**
+    private bool $_bShowIssuers;
+
+    /**
 	 * ApiHelper constructor.
 	 *
 	 * @param SettingsService $settingsService
@@ -50,6 +52,7 @@ class ApiHelper
     	$iMerchantId = (int)$this->settingsService->getSetting('merchantId', $salesChannelId);
     	$sApiKey = $this->settingsService->getSetting('apiKey',$salesChannelId);
     	$bTestMode = ($this->settingsService->getSetting('environment',$salesChannelId) == 'live' ? false : true);
+    	$this->_bShowIssuers = ($this->settingsService->getSetting('showIssuers',$salesChannelId) == '1' ? true : false);
     	$oCardGate = new Client($iMerchantId,$sApiKey,$bTestMode);
 	    $oCardGate->setIp( $this->_determineIp());
 	    $oCardGate->setLanguage( 'nl' );
@@ -64,6 +67,14 @@ class ApiHelper
     public function getSiteId(): int{
     	return $this->_iSiteId;
     }
+
+	/**
+	 * @return bool
+	 */
+    public function getShowIssuers(): bool{
+    	return $this->_bShowIssuers;
+    }
+
 
     /**
 	 * Get the ip address of the client.

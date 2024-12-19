@@ -53,8 +53,13 @@ class CheckoutConfirmTemplateSubscriber implements EventSubscriberInterface
         $client = $this->apiHelper->initializeCardGateClient($salesChannelContext->getSalesChannel()->getId());
         $struct = new CardGateStruct();
 
-	    $issuers = $client->methods()->get( \cardgate\api\Method::IDEAL )->getIssuers();
-        $lastUsedIssuer = $customer->getCustomFields()['last_used_issuer'] ?? null;
+        if ( $this->apiHelper->getShowIssuers() ) {
+            $issuers = $client->methods()->get( \cardgate\api\Method::IDEAL )->getIssuers();
+            $lastUsedIssuer = $customer->getCustomFields()['last_used_issuer'] ?? null;
+        } else {
+            $issuers = [];
+            $lastUsedIssuer = null;
+        }
 
         $struct->assign([
             'issuers' => $issuers,
