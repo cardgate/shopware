@@ -1,6 +1,6 @@
 ![CardGate](https://cdn.curopayments.net/thumb/200/logos/cardgate.png)
 
-# CardGate module for Shopware 6.5+
+# CardGate module for Shopware 6
 
 [![Build Status](https://travis-ci.org/cardgate/shopware.svg?branch=master)](https://travis-ci.org/cardgate/shopware)
 
