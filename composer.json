@@ -2,7 +2,7 @@
     "name": "cardgate/shopware",
     "description": "CardGate module for shopware 6",
     "type": "shopware-platform-plugin",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "license": "MIT",
     "minimum-stability": "RC",
     "require": {

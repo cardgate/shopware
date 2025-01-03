@@ -6,7 +6,7 @@
 
 ## Support
 
-Deze module is geschikt voor Shopware versie **6.4+**
+Deze module is geschikt voor Shopware versie **6.5+** - **6.6+**
 
 ## Voorbereiding
 
