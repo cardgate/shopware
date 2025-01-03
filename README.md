@@ -6,7 +6,7 @@
 
 ## Support
 
-This module supports Shopware version **6.5+**
+This module supports Shopware version **6.5+** - **6.6+**
 
 ## Preparation
 
