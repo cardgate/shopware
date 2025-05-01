@@ -10,13 +10,10 @@ namespace CardGate\Shopware\Handlers;
 use Exception;
 use CardGate\Shopware\Helper\ApiHelper;
 use CardGate\Shopware\Helper\CheckoutHelper;
-use Shopware\Core\Checkout\Cart\Exception\CustomerNotLoggedInException;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
 use Shopware\Core\Checkout\Payment\Cart\PaymentHandler\AsynchronousPaymentHandlerInterface;
-use Shopware\Core\Checkout\Payment\Exception\AsyncPaymentFinalizeException;
-use Shopware\Core\Checkout\Payment\Exception\AsyncPaymentProcessException;
-use Shopware\Core\Checkout\Payment\Exception\CustomerCanceledAsyncPaymentException;
+use Shopware\Core\Checkout\Payment\PaymentException;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Validation\DataBag\RequestDataBag;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
@@ -66,7 +63,7 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
      * @param SalesChannelContext $salesChannelContext
      * @param string|null $paymentMethod
      * @return RedirectResponse
-     * @throws AsyncPaymentProcessException
+     * @throws PaymentException
      */
     public function pay(
         AsyncPaymentTransactionStruct $paymentTransaction,
@@ -77,10 +74,7 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
 	    $transactionId = $paymentTransaction->getOrderTransaction()->getId();
 	    $customer = $salesChannelContext->getCustomer();
 	    if ($customer === null) {
-		    throw new AsyncPaymentProcessException(
-			    $transactionId,
-			    (new CustomerNotLoggedInException())->getMessage()
-		    );
+            throw PaymentException::asyncProcessInterrupted($transactionId,'Customer not logged in');
 	    }
 	    $paymentOptions = $this->checkoutHelper->getPaymentOptions($paymentTransaction);
 	    $this->saveFinalizeUrl($salesChannelContext,$paymentOptions['finalize_url']);
@@ -233,7 +227,7 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
 		    }
 
 	    } catch (Exception $exception) {
-		    throw new AsyncPaymentProcessException(
+		    throw PaymentException::asyncProcessInterrupted(
 		    $order->getTransactions()->first()->getId(),
 			    $exception->getMessage()
 		    );
@@ -244,8 +238,7 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
      * @param AsyncPaymentTransactionStruct $transaction
      * @param Request $request
      * @param SalesChannelContext $salesChannelContext
-     * @throws AsyncPaymentFinalizeException
-     * @throws CustomerCanceledAsyncPaymentException
+     * @throws PaymentException
      */
     public function finalize(
         AsyncPaymentTransactionStruct $transaction,
@@ -262,11 +255,11 @@ class AsyncPaymentHandler implements AsynchronousPaymentHandlerInterface
                 throw new Exception('Order number does not match order number known at CardGate');
             }
         } catch (Exception $exception) {
-            throw new AsyncPaymentFinalizeException($orderTransactionId, $exception->getMessage());
+            throw PaymentException::invalidOrder($orderId);
         }
 
         if ($request->query->getBoolean('cancel')) {
-            throw new CustomerCanceledAsyncPaymentException($orderTransactionId, 'Canceled at payment page');
+            throw PaymentException::customerCanceled($orderTransactionId, 'Canceled at payment page');
         }
     }
 
