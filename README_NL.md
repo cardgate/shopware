@@ -1,12 +1,12 @@
 ![CardGate](https://cdn.curopayments.net/thumb/200/logos/cardgate.png)
 
-# CardGate module voor Shopware 6
+# CardGate module voor Shopware 6 (Verouderd)
 
 [![Build Status](https://travis-ci.org/cardgate/shopware.svg?branch=master)](https://travis-ci.org/cardgate/shopware)
 
 ## Support
 
-Deze module is geschikt voor Shopware versie **6.5+** - **6.6+**
+Deze module is geschikt voor Shopware versie **6.5+** - **6.6**
 
 ## Voorbereiding
 
