@@ -101,7 +101,6 @@ class NotificationController extends StorefrontController
 
         $transactionId = $order->getTransactions()->first()->getId();
         $transaction = $order->getTransactions()->first();
-        $transaction->setC;
         $oCardGateClient = $this->apiHelper->initializeCardGateClient($order->getSalesChannelId());
         try {
 	        if ( FALSE == $oCardGateClient->transactions()->verifyCallback( $get, $this->settingsService->getSetting('hashKey',$order->getSalesChannelId())) ) {
